@@ -93,34 +93,35 @@
     <div class="wrap">
         <div class="content">
             <{foreach item=block from=$xoops_ccblocks}>
-            <{include file="$theme_name/theme_blockcenter.tpl"}>
+                <{include file="$theme_name/theme_blockcenter.tpl"}>
             <{/foreach}>
 
             <{if $xoops_contents && ($xoops_contents != ' ') }>
-            <div class="content_bottom">
-                <fieldset>
+                <div class="content_bottom">
                     <{$xoops_contents}>
-                </fieldset>
-            </div>
+                </div>
             <{/if}>
         </div>
 
-        <div class="sidebar">
-            <div class="sidebar_left_top">
-                <{foreach item=block from=$xoops_lblocks}>
-                <{include file="$theme_name/theme_blockleft.tpl"}>
-                <{/foreach}>
+        <{if $xoops_showlblock == 1}>
+            <div class="sidebar">
+                <div class="sidebar_left_top">
+                    <{foreach item=block from=$xoops_lblocks}>
+                    <{include file="$theme_name/theme_blockleft.tpl"}>
+                    <{/foreach}>
+                </div>
             </div>
-        </div>
+        <{/if}>
 
-
-        <div class="sidebar">
-            <div class="sidebar_right_top">
-                <{foreach item=block from=$xoops_rblocks}>
-                <{include file="$theme_name/theme_blockright.tpl"}>
-                <{/foreach}>
+        <{if $xoops_showrblock == 1}>
+            <div class="sidebar">
+                <div class="sidebar_right_top">
+                    <{foreach item=block from=$xoops_rblocks}>
+                    <{include file="$theme_name/theme_blockright.tpl"}>
+                    <{/foreach}>
+                </div>
             </div>
-        </div>
+        <{/if}>
         <div class="clear"></div>
 
     </div>

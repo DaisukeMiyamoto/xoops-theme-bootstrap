@@ -4,6 +4,11 @@
 <head>
     <!-- Assign Theme name -->
     <{assign var=theme_name value="bootstrap20161208"}>
+    <!-- Bootstrap -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<{$xoops_url}>/themes/<{$theme_name}>/bs_css/bootstrap.min.css" rel="stylesheet">
 
     <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>"/>
     <meta http-equiv="content-style-type" content="text/css"/>
@@ -61,8 +66,36 @@
 
 </head>
 
-
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CNSPF</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="<{$xoops_url}>">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+	    <form class="navbar-form navbar-right" action="<{$xoops_url}>/modules/xoonips/search.php" method="get">
+            <div class="form-group">
+		        <input type="text" name="keyword" class="form-control" placeholder="Search">
+                <input type="hidden" name="search_condition" value="1">
+                <input type="hidden" name="op" value="quick">
+		    </div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	      </form>
+            </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
 <div class="header">
     <div class="header_top">
         <div class="wrap">
@@ -93,34 +126,35 @@
     <div class="wrap">
         <div class="content">
             <{foreach item=block from=$xoops_ccblocks}>
-            <{include file="$theme_name/theme_blockcenter.tpl"}>
+                <{include file="$theme_name/theme_blockcenter.tpl"}>
             <{/foreach}>
 
             <{if $xoops_contents && ($xoops_contents != ' ') }>
-            <div class="content_bottom">
-                <fieldset>
+                <div class="content_bottom">
                     <{$xoops_contents}>
-                </fieldset>
-            </div>
+                </div>
             <{/if}>
         </div>
 
-        <div class="sidebar">
-            <div class="sidebar_left_top">
-                <{foreach item=block from=$xoops_lblocks}>
-                <{include file="$theme_name/theme_blockleft.tpl"}>
-                <{/foreach}>
+        <{if $xoops_showlblock == 1}>
+            <div class="sidebar">
+                <div class="sidebar_left_top">
+                    <{foreach item=block from=$xoops_lblocks}>
+                    <{include file="$theme_name/theme_blockleft.tpl"}>
+                    <{/foreach}>
+                </div>
             </div>
-        </div>
+        <{/if}>
 
-
-        <div class="sidebar">
-            <div class="sidebar_right_top">
-                <{foreach item=block from=$xoops_rblocks}>
-                <{include file="$theme_name/theme_blockright.tpl"}>
-                <{/foreach}>
+        <{if $xoops_showrblock == 1}>
+            <div class="sidebar">
+                <div class="sidebar_right_top">
+                    <{foreach item=block from=$xoops_rblocks}>
+                    <{include file="$theme_name/theme_blockright.tpl"}>
+                    <{/foreach}>
+                </div>
             </div>
-        </div>
+        <{/if}>
         <div class="clear"></div>
 
     </div>

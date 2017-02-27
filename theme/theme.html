@@ -5,10 +5,17 @@
     <!-- Assign Theme name -->
     <{assign var=theme_name value="bootstrap20161208"}>
     <!-- Bootstrap -->
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<{$xoops_url}>/themes/<{$theme_name}>/bs_css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>"/>
     <meta http-equiv="content-style-type" content="text/css"/>
@@ -70,7 +77,51 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="logo">
+                <a class="navbar-brand" href="<{$xoops_url}>"><img src="<{$xoops_imageurl}>cnslogo.png" alt=""/></a>
+            </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">XooNIps
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/modules/xoonips">XooNIps</a></li>
+                        <li><a href="/modules/xoonips/register.php">New Item</a></li>
+                        <li><a href="/modules/xoonips/itemimport.php">Import Items</a></li>
+                        <li><a href="/modules/xoonips/search.php?op=quick">Search</a></li>
+                        <li><a href="/modules/xoonips/editindex.php">Edit Index Tree</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/jscpb" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">JSCPB
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/jscpb/wiki">JSCPB Wiki</a></li>
+                        <li><a href="/jscpb/2016">JSCPB 2016</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -84,76 +135,51 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-	    <form class="navbar-form navbar-right" action="<{$xoops_url}>/modules/xoonips/search.php" method="get">
-            <div class="form-group">
-		        <input type="text" name="keyword" class="form-control" placeholder="Search">
-                <input type="hidden" name="search_condition" value="1">
-                <input type="hidden" name="op" value="quick">
-		    </div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	      </form>
-            </div><!--/.nav-collapse -->
+            <form class="navbar-form navbar-right" action="<{$xoops_url}>/modules/xoonips/search.php" method="get">
+                <div class="form-group">
+                    <input type="text" name="keyword" class="form-control" placeholder="Search">
+                    <input type="hidden" name="search_condition" value="1">
+                    <input type="hidden" name="op" value="quick">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>&lt;!&ndash;/.nav-collapse &ndash;&gt;
     </div>
 </nav>
-
-<div class="header">
-    <div class="header_top">
-        <div class="wrap">
-            <div class="logo">
-                <a href="<{$xoops_url}>"><img src="<{$xoops_imageurl}>cnslogo.png" alt="" height="70"/></a>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li class="active"><a href="<{$xoops_url}>">Home</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">Contact</a></li>
-                    <{if $xoops_isuser}>
-                    <li><a href="<{$xoops_url}>/user.php?op=logout">Logout</a></li>
-                    <{else}>
-                    <li><a href="<{$xoops_url}>/user.php">Login</a></li>
-                    <{/if}>
-                    <div class="clear"></div>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div>
-
+-->
 
 <div class="main">
     <div class="wrap">
         <div class="content">
             <{foreach item=block from=$xoops_ccblocks}>
-                <{include file="$theme_name/theme_blockcenter.tpl"}>
+            <{include file="$theme_name/theme_blockcenter.tpl"}>
             <{/foreach}>
 
             <{if $xoops_contents && ($xoops_contents != ' ') }>
-                <div class="content_bottom">
-                    <{$xoops_contents}>
-                </div>
+            <div class="content_bottom">
+                <{$xoops_contents}>
+            </div>
             <{/if}>
         </div>
 
         <{if $xoops_showlblock == 1}>
-            <div class="sidebar">
-                <div class="sidebar_left_top">
-                    <{foreach item=block from=$xoops_lblocks}>
-                    <{include file="$theme_name/theme_blockleft.tpl"}>
-                    <{/foreach}>
-                </div>
+        <div class="sidebar">
+            <div class="sidebar_left_top">
+                <{foreach item=block from=$xoops_lblocks}>
+                <{include file="$theme_name/theme_blockleft.tpl"}>
+                <{/foreach}>
             </div>
+        </div>
         <{/if}>
 
         <{if $xoops_showrblock == 1}>
-            <div class="sidebar">
-                <div class="sidebar_right_top">
-                    <{foreach item=block from=$xoops_rblocks}>
-                    <{include file="$theme_name/theme_blockright.tpl"}>
-                    <{/foreach}>
-                </div>
+        <div class="sidebar">
+            <div class="sidebar_right_top">
+                <{foreach item=block from=$xoops_rblocks}>
+                <{include file="$theme_name/theme_blockright.tpl"}>
+                <{/foreach}>
             </div>
+        </div>
         <{/if}>
         <div class="clear"></div>
 

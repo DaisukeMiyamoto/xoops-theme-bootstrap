@@ -166,7 +166,13 @@
         <div class="sidebar">
             <div class="sidebar_left_top">
                 <{foreach item=block from=$xoops_lblocks}>
-                <{include file="$theme_name/theme_blockleft.tpl"}>
+                    <{if $xoops_modulename|mb_strpos:'JSCPB' === 0}>
+                        <{if $block.weight >= 900 || $block.weight <= 0}>
+                            <{include file="$theme_name/theme_blockleft.tpl"}>
+                        <{/if}>
+                    <{else}>
+                        <{include file="$theme_name/theme_blockleft.tpl"}>
+                    <{/if}>
                 <{/foreach}>
             </div>
         </div>

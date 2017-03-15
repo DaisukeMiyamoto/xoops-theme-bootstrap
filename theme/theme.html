@@ -83,6 +83,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <div class="logo">
                 <a class="navbar-brand" href="<{$xoops_url}>"><img src="<{$xoops_imageurl}>cnslogo.png" alt=""/></a>
@@ -110,6 +111,11 @@
                         <li><a href="/jscpb/2016">JSCPB 2016</a></li>
                     </ul>
                 </li>
+                <{if $xoops_isuser}>
+                <li><a href="<{$xoops_url}>/user.php?op=logout">Logout</a></li>
+                <{else}>
+                <li><a href="<{$xoops_url}>/user.php">Login</a></li>
+                <{/if}>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -151,6 +157,8 @@
 <div class="main">
     <div class="wrap">
         <div class="content">
+            <{if $xoops_modulename|mb_strpos:'JSCPB' === 0}>
+            <{/if}>
             <{foreach item=block from=$xoops_ccblocks}>
             <{include file="$theme_name/theme_blockcenter.tpl"}>
             <{/foreach}>

@@ -5,7 +5,7 @@
       <paths name="cnspf">
         <serverdata>
           <mappings>
-            <mapping deploy="/html/themes/bootstrap20161208" local="$PROJECT_DIR$/theme" web="/" />
+            <mapping deploy="/html/themes/bootstrap20170322" local="$PROJECT_DIR$/theme" web="/" />
           </mappings>
         </serverdata>
       </paths>

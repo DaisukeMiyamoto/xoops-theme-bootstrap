@@ -1,0 +1,40 @@
+<table><tr>
+    <td width="65" style="vertical-align:middle; text-align:center;">
+        <img src="<{$item->getIconUrl()|xoops_escape}>" alt="icon_data" />
+    </td>
+    <td>
+        <a href="<{$item->getItemUrl()}>"><{$item->get(title,title)|xoops_escape}></a><br />
+        <{if (count($item->get(experimenters,experimenters_name)) != 0)}>
+            <{if is_array($item->get(experimenters,experimenters_name)) }>
+                <{foreach from=$item->get(experimenters,experimenters_name) key="key" item="experimenters_name" }>
+                    <{if $key != 0}>,<{/if}>
+                    <{$experimenters_name|xoops_escape}>
+                <{/foreach}>
+            <{else}>
+                <{$item->get(experimenters,experimenters_name)|xoops_escape}>
+            <{/if}>
+        <{/if}>
+    </td>
+    <td width="65">
+        <{if $item->isPending()}>(pending)<{/if}>
+    </td>
+</tr></table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="<{$item->getIconUrl()|xoops_escape}>" alt="icon_data" />
+            <h3><a href="<{$item->getItemUrl()}>"><{$item->get(title,title)|xoops_escape}></a></h3>
+        </div>
+    </div>
+</div>
+
+<{if $item_htmls}>
+<div class="row">
+    <{foreach item=i from=$item_htmls}>
+    <div class="item_box col-lg-2 col-sm-4 col-xs-6">
+        <div class="center-block"><{$i.html}></div>
+    </div>
+    <{/foreach}>
+</div>
+<{/if}>

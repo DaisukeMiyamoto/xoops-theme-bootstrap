@@ -340,9 +340,11 @@ div.menu li a:hover, .menu li.active a {
 
   h3 {
     font-family: 'ambleregular';
-    font-size: 0.85em;
-    color: #EE5010;
-    padding: 5px 0;
+    font-size:110%;
+    //font-size: 0.85em;
+    //color: #EE5010;
+    padding: auto;
+    margin:auto;
     line-height: 1.6em;
   }
 
@@ -377,7 +379,7 @@ div.menu li a:hover, .menu li.active a {
     width: auto;
 
     a {
-      display: block;
+      //display: block;
     }
   }
 }
@@ -531,6 +533,75 @@ body {
   background-color: @main-color !important;
 }
 
+.item_box_outer{
+  padding:4px;
+}
+.item_box{
+  position:relative;
+  width:100%;
+  border: 1px dotted #222;
+  height: 180px;
+  vertical-align: middle;
+  padding:5px;
+
+  a{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+    text-decoration: none;
+  }
+  a:hover{
+    background: @main-color;
+    filter:alpha(opacity=30);
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+  }
+  img{
+    display: block;
+    margin: auto;
+  }
+
+}
+.index_box{
+  position:relative;
+  width:100%;
+  border: 1px dotted #222;
+  height: 70px;
+  vertical-align: middle;
+  padding:5px;
+  margin:5px;
+
+  a{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+    text-decoration: none;
+  }
+  a:hover{
+    background: @main-color;
+    filter:alpha(opacity=30);
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+  }
+  img{
+    float:left;
+    display: block;
+    margin: 8px 15px 8px 8px;
+  }
+
+}
+
+hr.splitter{
+  width: 100%;
+  height: 15px;
+  margin: 5px 0px;
+}
 
 // for JSCPB2016
 #jscpb2016_container .pico_body, #jscpb2017_container .pico_body{

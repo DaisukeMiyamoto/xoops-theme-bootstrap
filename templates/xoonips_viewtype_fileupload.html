@@ -90,3 +90,24 @@
 <{elseif $viewType eq 'default'}>
 <input type="hidden" name="default_value" value="" />
 <{/if}>
+
+
+<{$smarty.const._MD_XOONIPS_ITEM_TYPE_LABEL}>: <{$file.mime_type}>
+<{$smarty.const._MD_XOONIPS_ITEM_SIZE_LABEL}>:
+<{if intval($file.file_size) >= 1024 * 1024}>
+<{$file.file_size/1048576|string_format:"%01.1f MB"}>
+    <{elseif intval($file.file_size) >= 1024}><{$file.file_size/1024|string_format:"%01.1f KB"}>
+    <{else}><{$file.file_size|string_format:"%d bytes"}>
+<{/if}>
+<{$smarty.const._MD_XOONIPS_ITEM_LAST_UPDATED_LABEL}>: <{$file.timestamp|date_format}>
+
+<span class="<{$dirname}>_no_print_span">
+<{if $file.limit}>
+    <a class="formButton" href="<{$file.download_url}>"<{if $file.notify}> onclick="return xoonipsDownloadConfirmation('<{$fileId}>')"<{/if}>><{$smarty.const._MD_XOONIPS_ITEM_DOWNLOAD_LABEL}></a>
+<{/if}>
+</span>
+<{if $file.original_file_name|mb_strpos:'.x3d' !== FALSE}>
+<span class="<{$dirname}>_no_print_span">
+<a class="formButton" href="javascript:void(0)" onclick="window.open('/x3d/show_cns.php?file_id=<{$fileId}>&fullscreen=1', '3D View', 'width=600, height=600, menubar=no, toolbar=no, scrollbars=no');">3D View</a>
+</span>
+<{/if}>

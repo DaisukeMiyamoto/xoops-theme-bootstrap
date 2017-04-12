@@ -1,8 +1,10 @@
- <div class="content_bottom">
+ <div class="content_bottom card">
     <fieldset>
-        <{if $block.title}>
-            <h2><{$block.title}></h2>
-        <{/if}>
-        <p><{$block.content}></p>
+            <div class="card-block">
+                <{if $block.title}>
+                    <h2 class="card-title"><{$block.title}></h2>
+                <{/if}>
+                <p class="card-text"><{$block.content}></p>
+            </div>
     </fieldset>
 </div>
